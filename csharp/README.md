@@ -1,6 +1,8 @@
 # json-tag
 
-C# System.Text.Json wrapper for [JSON#](https://www.github.com/immersus-machina/json-tag).
+C# support for [JSON#](https://www.github.com/immersus-machina/json-tag).
+
+Configures System.Text.Json to use the JSON# convention.
 
 ## Install
 

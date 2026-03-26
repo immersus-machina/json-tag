@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/JsonTag.FSharp/JsonTag.FSharp.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TestTypes.fs" />
+    <Compile Include="SerializeTests.fs" />
+    <Compile Include="DeserializeTests.fs" />
+    <Compile Include="JsonTagOptionsTests.fs" />
+  </ItemGroup>
+</Project>

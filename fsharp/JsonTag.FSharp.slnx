@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/JsonTag.FSharp/JsonTag.FSharp.fsproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/JsonTag.FSharp.Test/JsonTag.FSharp.Test.fsproj" />
+  </Folder>
+</Solution>

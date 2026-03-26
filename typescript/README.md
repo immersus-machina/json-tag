@@ -1,6 +1,8 @@
 # json-tag
 
-TypeScript utility types and runtime helpers for [JSON#](https://www.github.com/immersus-machina/json-tag).
+TypeScript support for [JSON#](https://www.github.com/immersus-machina/json-tag).
+
+Utility types and runtime helpers for the JSON# convention.
 
 ## Install
 
