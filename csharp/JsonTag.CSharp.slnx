@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/JsonTag/JsonTag.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/JsonTag.Test/JsonTag.Test.csproj" />
+  </Folder>
+  <Folder Name="/test/TransitiveTest/">
+    <Project Path="test/TransitiveTest/App.Test/App.Test.csproj" />
+    <Project Path="test/TransitiveTest/BaseTypes/BaseTypes.csproj" />
+    <Project Path="test/TransitiveTest/DerivedTypes/DerivedTypes.csproj" />
+    <Project Path="test/TransitiveTest/MoreDerivedTypes/MoreDerivedTypes.csproj" />
+  </Folder>
+</Solution>
