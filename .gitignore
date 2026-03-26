@@ -1,0 +1,74 @@
+# .NET (C#, F#)
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.nupkg
+
+# Rust
+target/
+
+# Haskell
+dist-newstyle/
+.cabal-sandbox/
+cabal.sandbox.config
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+
+# OCaml
+_build/
+_opam/
+*.cmi
+*.cmo
+*.cmx
+*.cma
+*.cmxa
+
+# TypeScript / Node.js
+node_modules/
+dist/
+
+# Java
+*.class
+*.jar
+*.war
+
+# Scala
+target/
+project/target/
+project/project/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# Kotlin
+.gradle/
+build/
+
+# Gleam
+build/
+
+# Swift
+.build/
+.swiftpm/
+Package.resolved
+
+# IDE
+.idea/
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

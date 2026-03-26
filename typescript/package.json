@@ -1,0 +1,40 @@
+{
+  "name": "json-tag",
+  "version": "0.1.0",
+  "description": "Cross-language JSON type tagging using #type",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "json",
+    "type",
+    "discriminator",
+    "tagged-union",
+    "discriminated-union",
+    "polymorphism",
+    "interop"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/immersus-machina/json-tag"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
+  }
+}
