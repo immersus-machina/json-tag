@@ -99,5 +99,8 @@ export function toJsonTag<
   Tag extends string,
   Fields extends Record<string, unknown>,
 >(tag: Tag, fields: Fields): JsonTagged<Tag, Fields> {
-  return { ...fields, [TYPE_FIELD]: tag } as JsonTagged<Tag, Fields>;
+  if (TYPE_FIELD in fields) {
+    throw new Error("fields must not contain \"#type\" — it is set by the tag parameter");
+  }
+  return { [TYPE_FIELD]: tag, ...fields } as JsonTagged<Tag, Fields>;
 }

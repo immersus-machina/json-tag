@@ -32,6 +32,12 @@ describe("toJsonTag", () => {
     expect(result.width).toBe(10);
     expect(result.height).toBe(5);
   });
+
+  it("throws when fields contain #type", () => {
+    // Act & Assert
+    expect(() => toJsonTag("Circle", { "#type": "Conflict", radius: 4 } as any))
+      .toThrow("fields must not contain \"#type\"");
+  });
 });
 
 describe("isJsonTagged", () => {
