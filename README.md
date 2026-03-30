@@ -19,9 +19,20 @@ A cross-language convention for tagging type information in JSON using `#type` a
 
 When serializing a discriminated union, sum type, or polymorphic type to JSON, use `#type` as the discriminator property.
 
-## Plan
+## Libraries
 
-Minimal wrapper libraries for 12 languages.
+- [C#](csharp/README.md) — System.Text.Json
+- [F#](fsharp/README.md) — FSharp.SystemTextJson
+- [Gleam](gleam/README.md) — gleam_json
+- [Haskell](haskell/README.md) — aeson
+- [Java](java/README.md) — Jackson
+- [Kotlin](kotlin/README.md) — kotlinx.serialization
+- [OCaml](ocaml/README.md) — yojson
+- [Python](python/README.md) — pydantic
+- [Rust](rust/README.md) — serde
+- [Scala](scala/README.md) — uPickle
+- [Swift](swift/README.md) — Codable
+- [TypeScript](typescript/README.md) — native JSON
 
 ## Reasoning
 
