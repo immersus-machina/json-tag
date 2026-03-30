@@ -3,7 +3,7 @@ name:               json-tag
 version:            0.1.0.0
 synopsis:           Haskell aeson Options for JSON# — the #type convention for cross-language type tagging in JSON.
 license:            MIT
-license-file:       ../LICENSE
+license-file:       LICENSE
 author:             immersus-machina
 maintainer:         innovate@immersus-machina.com
 homepage:           https://github.com/immersus-machina/json-tag

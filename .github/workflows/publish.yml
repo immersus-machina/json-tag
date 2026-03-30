@@ -274,8 +274,7 @@ jobs:
         working-directory: haskell
       - run: |
           cabal upload dist-newstyle/sdist/json-tag-${{ steps.version.outputs.VERSION }}.tar.gz \
-            --username=${{ secrets.HACKAGE_USERNAME }} \
-            --password=${{ secrets.HACKAGE_PASSWORD }}
+            --token=${{ secrets.HACKAGE_TOKEN }}
         working-directory: haskell
 
   publish-hex:
