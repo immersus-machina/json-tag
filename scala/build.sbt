@@ -2,7 +2,6 @@ lazy val root = (project in file("."))
   .settings(
     name := "json-tag-scala",
     organization := "io.github.immersus-machina",
-    version := "0.1.0",
     scalaVersion := "3.3.3",
     description := "Scala uPickle wrapper for JSON# — the #type convention for cross-language type tagging in JSON.",
     homepage := Some(url("https://github.com/immersus-machina/json-tag")),
