@@ -1,5 +1,5 @@
 {
-  "name": "json-tag",
+  "name": "@immersus-machina/json-tag",
   "version": "0.1.0",
   "description": "Cross-language JSON type tagging using #type",
   "type": "module",

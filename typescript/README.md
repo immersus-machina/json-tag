@@ -7,7 +7,7 @@ Utility types and runtime helpers for the JSON# convention.
 ## Install
 
 ```bash
-npm install json-tag
+npm install @immersus-machina/json-tag
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install json-tag
 Define your types:
 
 ```ts
-import type { JsonTagged } from "json-tag";
+import type { JsonTagged } from "@immersus-machina/json-tag";
 
 type Circle = JsonTagged<"Circle", { radius: number }>;
 type Rectangle = JsonTagged<"Rectangle", { width: number; height: number }>;
@@ -25,7 +25,7 @@ type Shape = Circle | Rectangle;
 Narrow with type safety:
 
 ```ts
-import { hasJsonTag } from "json-tag";
+import { hasJsonTag } from "@immersus-machina/json-tag";
 
 const shape = JSON.parse(json) as Shape;
 
@@ -37,7 +37,7 @@ if (hasJsonTag(shape, "Circle")) {
 Create tagged objects:
 
 ```ts
-import { toJsonTag } from "json-tag";
+import { toJsonTag } from "@immersus-machina/json-tag";
 
 const circle = toJsonTag("Circle", { radius: 4 });
 // { "#type": "Circle", radius: 4 }

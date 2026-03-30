@@ -208,7 +208,7 @@ jobs:
         working-directory: typescript
       - run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
         working-directory: typescript
-      - run: npm publish
+      - run: npm publish --access public
         working-directory: typescript
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

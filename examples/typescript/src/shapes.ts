@@ -1,5 +1,5 @@
-import type { JsonTagged } from "json-tag";
-import { toJsonTag } from "json-tag";
+import type { JsonTagged } from "@immersus-machina/json-tag";
+import { toJsonTag } from "@immersus-machina/json-tag";
 
 export type Circle = JsonTagged<"Circle", { radius: number }>;
 export type Rectangle = JsonTagged<"Rectangle", { width: number; height: number }>;

@@ -8,7 +8,7 @@
   "dependencies": {
     "hono": "^4.0.0",
     "@hono/node-server": "^1.0.0",
-    "json-tag": "file:../../typescript"
+    "@immersus-machina/json-tag": "file:../../typescript"
   },
   "devDependencies": {
     "tsx": "^4.0.0",
