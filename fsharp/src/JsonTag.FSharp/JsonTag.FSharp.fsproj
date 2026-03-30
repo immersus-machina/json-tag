@@ -1,12 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+
+    <PackageId>JsonTag.FSharp</PackageId>
+    <Authors>immersus-machina</Authors>
+    <Description>F# FSharp.SystemTextJson wrapper for JSON# — the #type convention for cross-language type tagging in JSON.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/immersus-machina/json-tag/blob/main/fsharp/README.md</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/immersus-machina/json-tag.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>fsharp;json;type;discriminator;tagged-union;discriminated-union;interop</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="JsonTagOptions.fs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="../../../LICENSE" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="10.0.100" />
     <PackageReference Include="FSharp.SystemTextJson" Version="1.4.36" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="all" />
   </ItemGroup>
+
 </Project>

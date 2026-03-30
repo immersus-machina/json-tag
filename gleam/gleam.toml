@@ -1,5 +1,8 @@
 name = "json_tag"
 version = "0.1.0"
+description = "Gleam encode/decode helpers for JSON# — the #type convention for cross-language type tagging in JSON."
+licences = ["MIT"]
+repository = { type = "github", user = "immersus-machina", repo = "json-tag" }
 target = "javascript"
 
 [dependencies]

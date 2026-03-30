@@ -2,6 +2,9 @@
 name = "json-tag-derive"
 version = "0.1.0"
 edition = "2021"
+description = "Proc-macro for json-tag — injects #[serde(tag = \"#type\")]"
+license = "MIT"
+repository = "https://github.com/immersus-machina/json-tag"
 
 [lib]
 proc-macro = true

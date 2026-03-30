@@ -2,6 +2,11 @@
 name = "json-tag"
 version = "0.1.0"
 edition = "2021"
+description = "Rust serde attribute macro for JSON# — the #type convention for cross-language type tagging in JSON."
+license = "MIT"
+repository = "https://github.com/immersus-machina/json-tag"
+keywords = ["json", "type", "discriminator", "tagged-union", "serde"]
+categories = ["encoding"]
 
 [dependencies]
 json-tag-derive = { path = "../json-tag-derive" }

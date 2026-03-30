@@ -28,6 +28,7 @@
     "polymorphism",
     "interop"
   ],
+  "author": "immersus-machina",
   "license": "MIT",
   "repository": {
     "type": "git",

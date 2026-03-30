@@ -8,6 +8,29 @@
     <artifactId>json-tag</artifactId>
     <version>0.1.0</version>
 
+    <name>json-tag</name>
+    <description>Java Jackson meta-annotation for JSON# — the #type convention for cross-language type tagging in JSON.</description>
+    <url>https://github.com/immersus-machina/json-tag</url>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>immersus-machina</name>
+            <url>https://github.com/immersus-machina</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/immersus-machina/json-tag.git</connection>
+        <url>https://github.com/immersus-machina/json-tag</url>
+    </scm>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>

@@ -1,0 +1,18 @@
+opam-version: "2.0"
+name: "json_tag"
+version: "0.1.0"
+synopsis: "OCaml encode/decode helpers for JSON# — the #type convention for cross-language type tagging in JSON"
+maintainer: "innovate@immersus-machina.com"
+authors: ["immersus-machina"]
+license: "MIT"
+homepage: "https://github.com/immersus-machina/json-tag"
+bug-reports: "https://github.com/immersus-machina/json-tag/issues"
+dev-repo: "git+https://github.com/immersus-machina/json-tag.git"
+depends: [
+  "ocaml" {>= "4.14"}
+  "dune" {>= "3.0"}
+  "yojson" {>= "2.0"}
+]
+build: [
+  ["dune" "build" "-p" name "-j" jobs]
+]
