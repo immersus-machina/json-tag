@@ -249,10 +249,10 @@ jobs:
       - run: |
           sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" json-tag-derive/Cargo.toml json-tag/Cargo.toml
         working-directory: rust
-      - run: cargo publish -p json-tag-derive --token ${{ secrets.CRATES_TOKEN }}
+      - run: cargo publish -p json-tag-derive --token ${{ secrets.CRATES_TOKEN }} --allow-dirty
         working-directory: rust
       - run: sleep 30
-      - run: cargo publish -p json-tag --token ${{ secrets.CRATES_TOKEN }}
+      - run: cargo publish -p json-tag --token ${{ secrets.CRATES_TOKEN }} --allow-dirty
         working-directory: rust
 
   publish-hackage:
