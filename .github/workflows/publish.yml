@@ -374,6 +374,7 @@ jobs:
           PGP_SECRET: ${{ secrets.MAVEN_GPG_KEY }}
           SONATYPE_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          SONATYPE_CREDENTIAL_HOST: central.sonatype.com
 
   # Swift: published via GitHub release tag — no registry upload needed.
   # opam: published via PR to opam-repository — manual process.

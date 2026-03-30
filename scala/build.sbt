@@ -17,6 +17,5 @@ lazy val root = (project in file("."))
     ),
     testFrameworks += new TestFramework("munit.Framework"),
     versionScheme := Some("semver-spec"),
-    publishMavenStyle := true,
-    sonatypeCredentialHost := "central.sonatype.com"
+    publishMavenStyle := true
   )
