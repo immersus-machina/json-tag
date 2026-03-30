@@ -15,5 +15,14 @@ lazy val root = (project in file("."))
       "com.lihaoyi" %% "upickle" % "4.0.2",
       "org.scalameta" %% "munit" % "1.0.0" % Test
     ),
-    testFrameworks += new TestFramework("munit.Framework")
+    testFrameworks += new TestFramework("munit.Framework"),
+    versionScheme := Some("semver-spec"),
+    publishTo := Some("ossrh" at "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"),
+    credentials += Credentials(
+      "Sonatype Nexus Repository Manager",
+      "s01.oss.sonatype.org",
+      sys.env.getOrElse("MAVEN_USERNAME", ""),
+      sys.env.getOrElse("MAVEN_PASSWORD", "")
+    ),
+    publishMavenStyle := true
   )
