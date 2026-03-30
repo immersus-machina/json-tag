@@ -6,10 +6,9 @@ Utility types and runtime helpers for the JSON# convention.
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 npm install json-tag
-``` -->
+```
 
 ## Usage
 

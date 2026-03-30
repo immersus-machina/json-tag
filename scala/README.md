@@ -6,10 +6,9 @@ Configures [uPickle](https://com-lihaoyi.github.io/upickle/) to use the JSON# co
 
 ## Install
 
-ToDo:
-<!-- ```scala
-libraryDependencies += "com.jsontag" %% "json-tag" % "0.1.0"
-``` -->
+```scala
+libraryDependencies += "io.github.immersus-machina" %% "json-tag-scala" % "0.1.0"
+```
 
 ## Usage
 

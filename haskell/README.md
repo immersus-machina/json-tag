@@ -6,10 +6,9 @@ Configures [aeson](https://hackage.haskell.org/package/aeson) to use the JSON# c
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 cabal install json-tag
-``` -->
+```
 
 ## Usage
 

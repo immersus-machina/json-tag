@@ -6,11 +6,9 @@ Configures [serde](https://serde.rs/) to use the JSON# convention.
 
 ## Install
 
-ToDo:
-<!-- ```toml
-[dependencies]
-json-tag = "0.1"
-``` -->
+```bash
+cargo add json-tag
+```
 
 ## Usage
 

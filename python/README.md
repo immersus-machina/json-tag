@@ -6,10 +6,9 @@ Configures [pydantic](https://docs.pydantic.dev/) to use the JSON# convention.
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 pip install json-tag
-``` -->
+```
 
 ## Usage
 

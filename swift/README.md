@@ -6,10 +6,11 @@ Codable helpers for the JSON# convention.
 
 ## Install
 
-ToDo:
-<!-- ```swift
+Add to your `Package.swift` dependencies:
+
+```swift
 .package(url: "https://github.com/immersus-machina/json-tag.git", from: "0.1.0")
-``` -->
+```
 
 ## Usage
 

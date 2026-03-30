@@ -6,10 +6,9 @@ Configures [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serializati
 
 ## Install
 
-ToDo:
-<!-- ```kotlin
-implementation("com.jsontag:json-tag:0.1.0")
-``` -->
+```kotlin
+implementation("io.github.immersus-machina:json-tag-kotlin:0.1.0")
+```
 
 ## Usage
 

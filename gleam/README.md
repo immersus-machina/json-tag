@@ -6,10 +6,9 @@ Encode/decode helpers for [gleam_json](https://hexdocs.pm/gleam_json/) using the
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 gleam add json_tag
-``` -->
+```
 
 ## Usage
 

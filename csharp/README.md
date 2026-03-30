@@ -6,10 +6,9 @@ Configures System.Text.Json to use the JSON# convention.
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 dotnet add package JsonTag.CSharp
-``` -->
+```
 
 ## Usage
 

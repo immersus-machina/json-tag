@@ -6,10 +6,9 @@ Encode/decode helpers for [yojson](https://github.com/ocaml-community/yojson) us
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 opam install json_tag
-``` -->
+```
 
 ## Usage
 

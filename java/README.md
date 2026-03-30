@@ -6,14 +6,13 @@ Configures [Jackson](https://github.com/FasterXML/jackson) to use the JSON# conv
 
 ## Install
 
-ToDo:
-<!-- ```xml
+```xml
 <dependency>
-    <groupId>com.jsontag</groupId>
+    <groupId>io.github.immersus-machina</groupId>
     <artifactId>json-tag</artifactId>
     <version>0.1.0</version>
 </dependency>
-``` -->
+```
 
 ## Usage
 

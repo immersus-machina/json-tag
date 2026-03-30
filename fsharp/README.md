@@ -6,10 +6,9 @@ Configures [FSharp.SystemTextJson](https://github.com/Tarmil/FSharp.SystemTextJs
 
 ## Install
 
-ToDo:
-<!-- ```bash
+```bash
 dotnet add package JsonTag.FSharp
-``` -->
+```
 
 ## Usage
 
