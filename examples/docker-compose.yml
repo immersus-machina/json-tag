@@ -1,0 +1,96 @@
+services:
+  typescript:
+    build:
+      context: ..
+      dockerfile: examples/typescript/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["typescript"]
+
+  csharp:
+    build:
+      context: ..
+      dockerfile: examples/csharp/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["csharp"]
+
+  fsharp:
+    build:
+      context: ..
+      dockerfile: examples/fsharp/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["fsharp"]
+
+  rust:
+    build:
+      context: ..
+      dockerfile: examples/rust/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["rust"]
+
+  haskell:
+    build:
+      context: ..
+      dockerfile: examples/haskell/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["haskell"]
+
+  ocaml:
+    build:
+      context: ..
+      dockerfile: examples/ocaml/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["ocaml"]
+
+  java:
+    build:
+      context: ..
+      dockerfile: examples/java/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["java"]
+
+  kotlin:
+    build:
+      context: ..
+      dockerfile: examples/kotlin/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["kotlin"]
+
+  scala:
+    build:
+      context: ..
+      dockerfile: examples/scala/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["scala"]
+
+  python:
+    build:
+      context: ..
+      dockerfile: examples/python/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["python"]
+
+  gleam:
+    build:
+      context: ..
+      dockerfile: examples/gleam/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["gleam"]
+
+  swift:
+    build:
+      context: ..
+      dockerfile: examples/swift/Dockerfile
+    ports:
+      - "57660:57660"
+    profiles: ["swift"]
