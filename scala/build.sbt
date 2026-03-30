@@ -17,12 +17,6 @@ lazy val root = (project in file("."))
     ),
     testFrameworks += new TestFramework("munit.Framework"),
     versionScheme := Some("semver-spec"),
-    publishTo := Some("ossrh" at "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"),
-    credentials += Credentials(
-      "Sonatype Nexus Repository Manager",
-      "s01.oss.sonatype.org",
-      sys.env.getOrElse("MAVEN_USERNAME", ""),
-      sys.env.getOrElse("MAVEN_PASSWORD", "")
-    ),
-    publishMavenStyle := true
+    publishMavenStyle := true,
+    sonatypeCredentialHost := "central.sonatype.com"
   )
