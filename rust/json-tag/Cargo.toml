@@ -9,4 +9,4 @@ keywords = ["json", "type", "discriminator", "tagged-union", "serde"]
 categories = ["encoding"]
 
 [dependencies]
-json-tag-derive = { path = "../json-tag-derive" }
+json-tag-derive = { path = "../json-tag-derive", version = "0.1.0" }

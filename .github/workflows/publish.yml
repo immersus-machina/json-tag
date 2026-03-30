@@ -349,6 +349,7 @@ jobs:
         env:
           CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          MAVEN_GPG_KEY: ${{ secrets.MAVEN_GPG_KEY }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
   publish-scala:
@@ -371,7 +372,7 @@ jobs:
         working-directory: scala
         env:
           PGP_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-          PGP_SECRET: ${{ secrets.MAVEN_GPG_KEY }}
+          PGP_SECRET: ${{ secrets.PGP_SECRET_BASE64 }}
           SONATYPE_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           SONATYPE_CREDENTIAL_HOST: central.sonatype.com

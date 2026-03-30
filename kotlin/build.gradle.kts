@@ -55,5 +55,9 @@ centralPortal {
 }
 
 signing {
-    useGpgCmd()
+    val signingKey = System.getenv("MAVEN_GPG_KEY")
+    val signingPassword = System.getenv("MAVEN_GPG_PASSPHRASE")
+    if (signingKey != null && signingPassword != null) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+    }
 }
