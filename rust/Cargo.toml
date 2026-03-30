@@ -1,0 +1,3 @@
+[workspace]
+members = ["json-tag", "json-tag-derive", "json-tag-tests"]
+resolver = "2"

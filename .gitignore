@@ -8,6 +8,7 @@ obj/
 
 # Rust
 target/
+Cargo.lock
 
 # Haskell
 dist-newstyle/
