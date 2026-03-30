@@ -1,0 +1,3 @@
+(library
+ (name shapes)
+ (libraries json_tag yojson))
