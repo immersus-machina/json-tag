@@ -4,7 +4,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.jsontag"
+group = "io.github.immersus-machina"
 version = "0.1.0"
 
 repositories {
