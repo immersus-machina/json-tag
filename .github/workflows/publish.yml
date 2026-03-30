@@ -10,325 +10,325 @@ permissions:
 jobs:
   # Phase 1: Test all languages in parallel
 
-#   test-csharp:
-#     name: Test C#
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-dotnet@v5
-#         with:
-#           dotnet-version: '10.0.x'
-#       - run: dotnet run --project test/JsonTag.Test
-#         working-directory: csharp
-#       - run: dotnet run --project test/TransitiveTest/App.Test
-#         working-directory: csharp
+  test-csharp:
+    name: Test C#
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet run --project test/JsonTag.Test
+        working-directory: csharp
+      - run: dotnet run --project test/TransitiveTest/App.Test
+        working-directory: csharp
 
-#   test-fsharp:
-#     name: Test F#
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-dotnet@v5
-#         with:
-#           dotnet-version: '10.0.x'
-#       - run: dotnet run --project test/JsonTag.FSharp.Test
-#         working-directory: fsharp
+  test-fsharp:
+    name: Test F#
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet run --project test/JsonTag.FSharp.Test
+        working-directory: fsharp
 
-#   test-typescript:
-#     name: Test TypeScript
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-node@v4
-#         with:
-#           node-version: '22'
-#       - run: npm ci
-#         working-directory: typescript
-#       - run: npm test
-#         working-directory: typescript
+  test-typescript:
+    name: Test TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+        working-directory: typescript
+      - run: npm test
+        working-directory: typescript
 
-#   test-rust:
-#     name: Test Rust
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: dtolnay/rust-toolchain@stable
-#       - run: cargo test
-#         working-directory: rust
+  test-rust:
+    name: Test Rust
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test
+        working-directory: rust
 
-#   test-haskell:
-#     name: Test Haskell
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: haskell-actions/setup@v2
-#         with:
-#           ghc-version: '9.6'
-#       - run: cabal update && cabal test
-#         working-directory: haskell
+  test-haskell:
+    name: Test Haskell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.6'
+      - run: cabal update && cabal test
+        working-directory: haskell
 
-#   test-ocaml:
-#     name: Test OCaml
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: ocaml/setup-ocaml@v3
-#         with:
-#           ocaml-compiler: '4.14'
-#       - run: opam install yojson alcotest -y
-#       - run: eval $(opam env) && dune test
-#         working-directory: ocaml
+  test-ocaml:
+    name: Test OCaml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: '4.14'
+      - run: opam install yojson alcotest -y
+      - run: eval $(opam env) && dune test
+        working-directory: ocaml
 
-#   test-java:
-#     name: Test Java
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-java@v4
-#         with:
-#           distribution: 'temurin'
-#           java-version: '21'
-#       - run: mvn test -q
-#         working-directory: java
+  test-java:
+    name: Test Java
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - run: mvn test -q
+        working-directory: java
 
-#   test-kotlin:
-#     name: Test Kotlin
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-java@v4
-#         with:
-#           distribution: 'temurin'
-#           java-version: '21'
-#       - uses: gradle/actions/setup-gradle@v4
-#       - run: gradle test
-#         working-directory: kotlin
+  test-kotlin:
+    name: Test Kotlin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v4
+      - run: gradle test
+        working-directory: kotlin
 
-#   test-scala:
-#     name: Test Scala
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-java@v4
-#         with:
-#           distribution: 'temurin'
-#           java-version: '21'
-#       - run: |
-#           curl -fL https://github.com/sbt/sbt/releases/download/v1.10.6/sbt-1.10.6.tgz | tar xz -C /tmp
-#           echo "/tmp/sbt/bin" >> $GITHUB_PATH
-#       - run: sbt test
-#         working-directory: scala
+  test-scala:
+    name: Test Scala
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      - run: |
+          curl -fL https://github.com/sbt/sbt/releases/download/v1.10.6/sbt-1.10.6.tgz | tar xz -C /tmp
+          echo "/tmp/sbt/bin" >> $GITHUB_PATH
+      - run: sbt test
+        working-directory: scala
 
-#   test-python:
-#     name: Test Python
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-python@v5
-#         with:
-#           python-version: '3.12'
-#       - run: pip install -e ".[test]"
-#         working-directory: python
-#       - run: pytest test/ -v
-#         working-directory: python
+  test-python:
+    name: Test Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e ".[test]"
+        working-directory: python
+      - run: pytest test/ -v
+        working-directory: python
 
-#   test-gleam:
-#     name: Test Gleam
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: erlef/setup-beam@v1
-#         with:
-#           otp-version: '26'
-#           gleam-version: '1.9'
-#       - run: gleam test
-#         working-directory: gleam
+  test-gleam:
+    name: Test Gleam
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '26'
+          gleam-version: '1.9'
+      - run: gleam test
+        working-directory: gleam
 
-#   test-swift:
-#     name: Test Swift
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: swift-actions/setup-swift@v2
-#         with:
-#           swift-version: '6.1'
-#       - run: swift test
-#         working-directory: swift
+  test-swift:
+    name: Test Swift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: '6.1'
+      - run: swift test
+        working-directory: swift
 
-#   # Gate: all tests must pass before any publishing
+  # Gate: all tests must pass before any publishing
 
-#   gate:
-#     name: All tests passed
-#     needs: [test-csharp, test-fsharp, test-typescript, test-rust, test-haskell, test-ocaml, test-java, test-kotlin, test-scala, test-python, test-gleam, test-swift]
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: echo "All tests passed"
+  gate:
+    name: All tests passed
+    needs: [test-csharp, test-fsharp, test-typescript, test-rust, test-haskell, test-ocaml, test-java, test-kotlin, test-scala, test-python, test-gleam, test-swift]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "All tests passed"
 
-#   # Phase 2: Publish to each registry
+  # Phase 2: Publish to each registry
 
-#   publish-nuget:
-#     name: Publish NuGet
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-dotnet@v5
-#         with:
-#           dotnet-version: '10.0.x'
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - name: Pack C#
-#         run: dotnet pack src/JsonTag/JsonTag.csproj -c Release -p:Version=${{ steps.version.outputs.VERSION }} -o ../artifacts
-#         working-directory: csharp
-#       - name: Pack F#
-#         run: dotnet pack src/JsonTag.FSharp/JsonTag.FSharp.fsproj -c Release -p:Version=${{ steps.version.outputs.VERSION }} -o ../artifacts
-#         working-directory: fsharp
-#       - name: Push to NuGet
-#         run: |
-#           dotnet nuget push artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-#           dotnet nuget push artifacts/*.snupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+  publish-nuget:
+    name: Publish NuGet
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - name: Pack C#
+        run: dotnet pack src/JsonTag/JsonTag.csproj -c Release -p:Version=${{ steps.version.outputs.VERSION }} -o ../artifacts
+        working-directory: csharp
+      - name: Pack F#
+        run: dotnet pack src/JsonTag.FSharp/JsonTag.FSharp.fsproj -c Release -p:Version=${{ steps.version.outputs.VERSION }} -o ../artifacts
+        working-directory: fsharp
+      - name: Push to NuGet
+        run: |
+          dotnet nuget push artifacts/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push artifacts/*.snupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-#   publish-npm:
-#     name: Publish npm
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-node@v4
-#         with:
-#           node-version: '22'
-#           registry-url: 'https://registry.npmjs.org'
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - run: npm ci
-#         working-directory: typescript
-#       - run: npm run build
-#         working-directory: typescript
-#       - run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
-#         working-directory: typescript
-#       - run: npm publish --access public
-#         working-directory: typescript
-#         env:
-#           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  publish-npm:
+    name: Publish npm
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - run: npm ci
+        working-directory: typescript
+      - run: npm run build
+        working-directory: typescript
+      - run: npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
+        working-directory: typescript
+      - run: npm publish --access public
+        working-directory: typescript
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-#   publish-pypi:
-#     name: Publish PyPI
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-python@v5
-#         with:
-#           python-version: '3.12'
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - run: pip install build twine
-#       - run: sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" pyproject.toml
-#         working-directory: python
-#       - run: python -m build
-#         working-directory: python
-#       - run: twine upload dist/*
-#         working-directory: python
-#         env:
-#           TWINE_USERNAME: __token__
-#           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+  publish-pypi:
+    name: Publish PyPI
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - run: pip install build twine
+      - run: sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" pyproject.toml
+        working-directory: python
+      - run: python -m build
+        working-directory: python
+      - run: twine upload dist/*
+        working-directory: python
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
 
-#   publish-crates:
-#     name: Publish crates.io
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: dtolnay/rust-toolchain@stable
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - run: |
-#           sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" json-tag-derive/Cargo.toml json-tag/Cargo.toml
-#         working-directory: rust
-#       - run: cargo publish -p json-tag-derive --token ${{ secrets.CRATES_TOKEN }} --allow-dirty
-#         working-directory: rust
-#       - run: sleep 30
-#       - run: cargo publish -p json-tag --token ${{ secrets.CRATES_TOKEN }} --allow-dirty
-#         working-directory: rust
+  publish-crates:
+    name: Publish crates.io
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - run: |
+          sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" json-tag-derive/Cargo.toml json-tag/Cargo.toml
+        working-directory: rust
+      - run: cargo publish -p json-tag-derive --token ${{ secrets.CRATES_TOKEN }} --allow-dirty
+        working-directory: rust
+      - run: sleep 30
+      - run: cargo publish -p json-tag --token ${{ secrets.CRATES_TOKEN }} --allow-dirty
+        working-directory: rust
 
-#   publish-hackage:
-#     name: Publish Hackage
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: haskell-actions/setup@v2
-#         with:
-#           ghc-version: '9.6'
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - run: |
-#           sed -i "s/version:            0.1.0.0/version:            ${{ steps.version.outputs.VERSION }}/" json-tag.cabal
-#         working-directory: haskell
-#       - run: cabal update && cabal sdist
-#         working-directory: haskell
-#       - run: |
-#           cabal upload dist-newstyle/sdist/json-tag-${{ steps.version.outputs.VERSION }}.tar.gz \
-#             --token=${{ secrets.HACKAGE_TOKEN }}
-#         working-directory: haskell
+  publish-hackage:
+    name: Publish Hackage
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.6'
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - run: |
+          sed -i "s/version:            0.1.0.0/version:            ${{ steps.version.outputs.VERSION }}/" json-tag.cabal
+        working-directory: haskell
+      - run: cabal update && cabal sdist
+        working-directory: haskell
+      - run: |
+          cabal upload dist-newstyle/sdist/json-tag-${{ steps.version.outputs.VERSION }}.tar.gz \
+            --token=${{ secrets.HACKAGE_TOKEN }}
+        working-directory: haskell
 
-#   publish-hex:
-#     name: Publish Hex.pm
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: erlef/setup-beam@v1
-#         with:
-#           otp-version: '26'
-#           gleam-version: '1.9'
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - run: sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" gleam.toml
-#         working-directory: gleam
-#       - run: gleam publish -y
-#         working-directory: gleam
-#         env:
-#           HEXPM_API_KEY: ${{ secrets.HEX_API_KEY }}
+  publish-hex:
+    name: Publish Hex.pm
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '26'
+          gleam-version: '1.9'
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - run: sed -i "s/version = \"0.1.0\"/version = \"${{ steps.version.outputs.VERSION }}\"/" gleam.toml
+        working-directory: gleam
+      - run: gleam publish -y
+        working-directory: gleam
+        env:
+          HEXPM_API_KEY: ${{ secrets.HEX_API_KEY }}
 
-#   publish-java:
-#     name: Publish Java
-#     needs: gate
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v5
-#       - uses: actions/setup-java@v4
-#         with:
-#           distribution: 'temurin'
-#           java-version: '21'
-#           server-id: central
-#           server-username: CENTRAL_USERNAME
-#           server-password: CENTRAL_PASSWORD
-#           gpg-private-key: ${{ secrets.MAVEN_GPG_KEY }}
-#           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-#       - name: Extract version
-#         id: version
-#         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
-#       - name: Set Java version
-#         run: sed -i "s/<version>0.1.0<\/version>/<version>${{ steps.version.outputs.VERSION }}<\/version>/" pom.xml
-#         working-directory: java
-#       - name: Publish Java
-#         run: mvn deploy -DskipTests
-#         working-directory: java
-#         env:
-#           CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-#           CENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-#           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+  publish-java:
+    name: Publish Java
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          server-id: central
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - name: Set Java version
+        run: sed -i "s/<version>0.1.0<\/version>/<version>${{ steps.version.outputs.VERSION }}<\/version>/" pom.xml
+        working-directory: java
+      - name: Publish Java
+        run: mvn deploy -DskipTests
+        working-directory: java
+        env:
+          CENTRAL_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          CENTRAL_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
   publish-kotlin:
     name: Publish Kotlin
-    # needs: gate
+    needs: gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -354,7 +354,7 @@ jobs:
 
   publish-scala:
     name: Publish Scala
-    # needs: gate
+    needs: gate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -377,5 +377,5 @@ jobs:
           SONATYPE_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           SONATYPE_CREDENTIAL_HOST: central.sonatype.com
 
-  # Swift: published via GitHub release tag — no registry upload needed.
-  # opam: published via PR to opam-repository — manual process.
+#   Swift: published via GitHub release tag — no registry upload needed.
+#   opam: published via PR to opam-repository — manual process.
