@@ -298,7 +298,7 @@ jobs:
           HEXPM_API_KEY: ${{ secrets.HEX_API_KEY }}
 
   publish-maven:
-    name: Publish Maven Central
+    name: Publish Java
     needs: gate
     runs-on: ubuntu-latest
     steps:
