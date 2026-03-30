@@ -49,6 +49,6 @@ Use `#[serde(rename_all_fields = "camelCase")]` for camelCase JSON field names â
 
 ## API
 
-| Export        | Description                                        |
-|---------------|----------------------------------------------------|
+| Export | Description |
+|---|---|
 | `#[json_tag]` | Attribute macro â€” injects `#[serde(tag = "#type")]` |
