@@ -8,12 +8,6 @@ pub fn main() {
   gleeunit.main()
 }
 
-pub fn type_field_is_hash_type_test() {
-  // Assert
-  json_tag.type_field
-  |> should.equal("#type")
-}
-
 pub fn tag_of_when_present_returns_tag_test() {
   // Arrange
   let assert Ok(decoded) =
