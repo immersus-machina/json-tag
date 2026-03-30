@@ -113,6 +113,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+      - run: |
+          curl -fL https://github.com/sbt/sbt/releases/download/v1.10.6/sbt-1.10.6.tgz | tar xz -C /tmp
+          echo "/tmp/sbt/bin" >> $GITHUB_PATH
       - run: sbt test
         working-directory: scala
 
