@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSON Tag — #type convention for typed JSON</title>
+  <meta name="description" content="A cross-language convention for tagging type information in JSON using #type as the discriminator property.">
+  <style>
+    :root {
+      --fg: #1a1a1a;
+      --bg: #fafaf8;
+      --muted: #666;
+      --accent: #2a6;
+      --code-bg: #f0f0ec;
+      --border: #ddd;
+      --max-width: 640px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fg: #e0e0dc;
+        --bg: #1a1a1e;
+        --muted: #999;
+        --accent: #4cb87a;
+        --code-bg: #24242a;
+        --border: #333;
+      }
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    header { margin-bottom: 3rem; }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    h1 span { color: var(--accent); }
+
+    header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    section { margin-bottom: 2.5rem; }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    p { margin-bottom: 1rem; }
+
+    pre {
+      background: var(--code-bg);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    code {
+      font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    p code {
+      background: var(--code-bg);
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+    }
+
+    .tag-name { color: var(--accent); font-weight: 600; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td:first-child { white-space: nowrap; }
+
+    .taken { color: var(--muted); }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 0.3rem 0;
+    }
+
+    ul li::before {
+      content: "\2013";
+      color: var(--muted);
+      margin-right: 0.5rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .libraries {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.25rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .libraries span {
+      color: var(--muted);
+      font-size: 0.85em;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>JSON<span>#</span></h1>
+  <p>Tag typed data in JSON. By convention.</p>
+</header>
+
+<section>
+  <pre><code>{
+  "<span class="tag-name">#type</span>": "Circle",
+  "radius": 4
+}</code></pre>
+  <p>
+    When serializing a discriminated union, sum type, or polymorphic type to JSON,
+    use <code>#type</code> as the discriminator property.
+    The value is a logical tag name in PascalCase. Never a fully-qualified class name.
+    Purely optional. Completely compatible. Standard JSON.
+  </p>
+</section>
+
+<section>
+  <h2>Why #type</h2>
+  <p>The need for a type discriminator in JSON is well established. Everyone does it. Nobody agreed on how.</p>
+  <table>
+    <thead>
+      <tr><th>Field</th><th>Used by</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>type</code></td><td>everywhere</td><td>discriminator, but collides with domain fields</td></tr>
+      <tr><td><code>$type</code></td><td>.NET, uPickle</td><td>polymorphic type discriminator</td></tr>
+      <tr><td><code>@type</code></td><td>JSON-LD</td><td>linked data node type</td></tr>
+      <tr><td><code>__typename</code></td><td>GraphQL</td><td>concrete type in union responses</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Four ecosystems, same idea, four different names. <code>#type</code> is the simple, neutral answer.
+    <code>#</code> is valid in JSON property names, has no reserved meaning in any specification,
+    and reads naturally as "tag".
+  </p>
+</section>
+
+<section>
+  <h2>The Convention</h2>
+  <ul>
+    <li>Use <code>#type</code> as the discriminator property name</li>
+    <li>Values are PascalCase logical names, not class paths</li>
+    <li>Fields sit alongside <code>#type</code> at the same level</li>
+    <li>If a type has no variants, omit <code>#type</code> entirely</li>
+    <li>Custom tag names are fine &mdash; the default is the type name</li>
+  </ul>
+  <pre><code>{"<span class="tag-name">#type</span>": "Circle", "radius": 4}
+{"<span class="tag-name">#type</span>": "Rectangle", "width": 10, "height": 5}
+{"<span class="tag-name">#type</span>": "Car", "make": "Toyota"}
+{"<span class="tag-name">#type</span>": "Truck", "payloadTons": 5}</code></pre>
+</section>
+
+<section>
+  <h2>Libraries</h2>
+  <p>Reference implementations exist for 12 languages, each wrapping the ecosystem's dominant JSON library.
+    <a href="https://github.com/immersus-machina/json-tag">See the project on GitHub.</a></p>
+</section>
+
+<footer>
+  <a href="https://github.com/immersus-machina/json-tag">GitHub</a>
+</footer>
+
+</body>
+</html>
