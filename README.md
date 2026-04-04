@@ -34,10 +34,16 @@ When serializing a discriminated union, sum type, or polymorphic type to JSON, u
 - [Swift](swift/README.md) — Codable
 - [TypeScript](typescript/README.md) — native JSON
 
-## Reasoning
+## Why `#type`?
 
-Why `#type`?
+The need for a type discriminator in JSON is well established. Everyone does it. Nobody agreed on how.
 
-- `type` collides with domain fields. `$type` is .NET. `@type` is JSON-LD. `__typename` is GraphQL. `tag` is Haskell.
-- `#` is valid in JSON, has no reserved meaning in any specification, and reads as "tag".
-- Anyone knowing JSON and seeing the `#type` will instantly understand what it does.
+| Field | Used by | Purpose |
+|-------|---------|---------|
+| `type` | everywhere | discriminator, but collides with domain fields |
+| `$type` | .NET, uPickle | polymorphic type discriminator |
+| `@type` | JSON-LD | linked data node type |
+| `__typename` | GraphQL | concrete type in union responses |
+
+Four ecosystems, same idea, four different names. `#type` is the simple, neutral answer.
+`#` is valid in JSON property names, has no reserved meaning in any specification, and reads naturally as "tag".
