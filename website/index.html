@@ -131,6 +131,20 @@
       margin-right: 0.5rem;
     }
 
+    ol {
+      padding-left: 1.5rem;
+    }
+
+    ol li {
+      padding: 0.3rem 0;
+    }
+
+    ol li::marker {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.85em;
+    }
+
     a {
       color: var(--accent);
       text-decoration: none;
@@ -204,14 +218,15 @@
 </section>
 
 <section>
-  <h2>The Convention</h2>
-  <ul>
-    <li>Use <code>#type</code> as the discriminator property name</li>
-    <li>Values are PascalCase logical names, not class paths</li>
-    <li>Fields sit alongside <code>#type</code> at the same level</li>
-    <li>If a type has no variants, omit <code>#type</code> entirely</li>
-    <li>Custom tag names are fine &mdash; the default is the type name</li>
-  </ul>
+  <h2>Specification</h2>
+  <ol>
+    <li>The discriminator property is named <code>#type</code>. The name is fixed and not configurable at the protocol level.</li>
+    <li>The value of <code>#type</code> is a logical tag name in PascalCase. It is never a runtime class name, fully-qualified path, or namespace-prefixed identifier.</li>
+    <li>The tag is internally tagged: <code>#type</code> and the variant's fields sit as sibling properties in the same JSON object.</li>
+    <li>A type that is never part of a discriminated union does not include <code>#type</code>.</li>
+    <li>A variant may use a custom tag name. The default is the type or variant name.</li>
+    <li>Producers should place <code>#type</code> as the first property. Consumers must not depend on property order.</li>
+  </ol>
   <pre><code>{"<span class="tag-name">#type</span>": "Circle", "radius": 4}
 {"<span class="tag-name">#type</span>": "Rectangle", "width": 10, "height": 5}
 {"<span class="tag-name">#type</span>": "Car", "make": "Toyota"}
