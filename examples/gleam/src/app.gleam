@@ -40,7 +40,8 @@ pub fn main() {
   let assert Ok(_server) =
     mist.new(handle_request)
     |> mist.port(57660)
-    |> mist.start_http()
+    |> mist.bind("0.0.0.0")
+    |> mist.start()
 
   process.sleep_forever()
 }

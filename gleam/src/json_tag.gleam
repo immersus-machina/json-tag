@@ -1,6 +1,6 @@
-import gleam/dynamic.{type DecodeError, type Dynamic}
+import gleam/dynamic.{type Dynamic}
+import gleam/dynamic/decode.{type DecodeError}
 import gleam/json
-import gleam/result
 
 /// The discriminator property name used by JSON Tag.
 pub const type_field = "#type"
@@ -8,10 +8,6 @@ pub const type_field = "#type"
 /// Function signature for encoding a tagged JSON object.
 pub type TagEncoder =
   fn(String, List(#(String, json.Json))) -> json.Json
-
-/// Function signature for decoding a tagged JSON dynamic value.
-pub type TagDecoder =
-  fn(Dynamic) -> Result(#(String, Dynamic), List(DecodeError))
 
 /// Encodes a tagged JSON object with `#type` set to the given tag.
 ///
@@ -33,11 +29,21 @@ pub fn encode(
 pub fn decode(
   from json: Dynamic,
 ) -> Result(#(String, Dynamic), List(DecodeError)) {
-  use tag_value <- result.try(tag_of(from: json))
-  Ok(#(tag_value, json))
+  let tag_decoder = {
+    use tag <- decode.field(type_field, decode.string)
+    decode.success(tag)
+  }
+  case decode.run(json, tag_decoder) {
+    Ok(tag) -> Ok(#(tag, json))
+    Error(errors) -> Error(errors)
+  }
 }
 
 /// Extracts just the `#type` tag value from a dynamic JSON value.
 pub fn tag_of(from json: Dynamic) -> Result(String, List(DecodeError)) {
-  dynamic.field(type_field, dynamic.string)(json)
+  let tag_decoder = {
+    use tag <- decode.field(type_field, decode.string)
+    decode.success(tag)
+  }
+  decode.run(json, tag_decoder)
 }

@@ -34,6 +34,10 @@ When serializing a discriminated union, sum type, or polymorphic type to JSON, u
 - [Swift](swift/README.md) — Codable
 - [TypeScript](typescript/README.md) — native JSON
 
+## Examples
+
+12 backends, one endpoint, same JSON. See the [examples](examples/README.md).
+
 ## Why `#type`?
 
 The need for a type discriminator in JSON is well established. Everyone does it. Nobody agreed on how.
