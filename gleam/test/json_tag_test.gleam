@@ -1,4 +1,4 @@
-import gleam/dynamic
+import gleam/dynamic/decode
 import gleam/json
 import gleeunit
 import gleeunit/should
@@ -11,7 +11,7 @@ pub fn main() {
 pub fn tag_of_when_present_returns_tag_test() {
   // Arrange
   let assert Ok(decoded) =
-    json.decode("{\"#type\":\"Circle\",\"radius\":4}", dynamic.dynamic)
+    json.parse("{\"#type\":\"Circle\",\"radius\":4}", decode.dynamic)
 
   // Act & Assert
   json_tag.tag_of(from: decoded)
@@ -21,7 +21,7 @@ pub fn tag_of_when_present_returns_tag_test() {
 pub fn tag_of_when_missing_returns_error_test() {
   // Arrange
   let assert Ok(decoded) =
-    json.decode("{\"radius\":4}", dynamic.dynamic)
+    json.parse("{\"radius\":4}", decode.dynamic)
 
   // Act & Assert
   json_tag.tag_of(from: decoded)

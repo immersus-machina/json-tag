@@ -1,4 +1,5 @@
-import gleam/dynamic.{type DecodeError, type Dynamic}
+import gleam/dynamic.{type Dynamic}
+import gleam/dynamic/decode.{type DecodeError}
 import gleam/json
 import gleam/result
 import json_tag
@@ -42,28 +43,30 @@ pub fn encode_vehicle(vehicle: Vehicle, encoder: json_tag.TagEncoder) -> json.Js
 
 pub fn decode_shape(
   json: Dynamic,
-  decoder: json_tag.TagDecoder,
+  decoder: fn(Dynamic) -> Result(#(String, Dynamic), List(DecodeError)),
 ) -> Result(Shape, List(DecodeError)) {
   use #(tag, remaining) <- result.try(decoder(json))
   case tag {
     "Circle" -> {
-      use radius <- result.try(
-        dynamic.field("radius", dynamic.int)(remaining),
-      )
+      let radius_decoder = {
+        use r <- decode.field("radius", decode.int)
+        decode.success(r)
+      }
+      use radius <- result.try(decode.run(remaining, radius_decoder))
       Ok(Circle(radius: radius))
     }
     "Rectangle" -> {
-      use width <- result.try(
-        dynamic.field("width", dynamic.int)(remaining),
-      )
-      use height <- result.try(
-        dynamic.field("height", dynamic.int)(remaining),
-      )
-      Ok(Rectangle(width: width, height: height))
+      let rect_decoder = {
+        use w <- decode.field("width", decode.int)
+        use h <- decode.field("height", decode.int)
+        decode.success(#(w, h))
+      }
+      use dims <- result.try(decode.run(remaining, rect_decoder))
+      Ok(Rectangle(width: dims.0, height: dims.1))
     }
     _ ->
       Error([
-        dynamic.DecodeError(
+        decode.DecodeError(
           expected: "Circle or Rectangle",
           found: tag,
           path: ["#type"],
@@ -74,25 +77,29 @@ pub fn decode_shape(
 
 pub fn decode_vehicle(
   json: Dynamic,
-  decoder: json_tag.TagDecoder,
+  decoder: fn(Dynamic) -> Result(#(String, Dynamic), List(DecodeError)),
 ) -> Result(Vehicle, List(DecodeError)) {
   use #(tag, remaining) <- result.try(decoder(json))
   case tag {
     "Car" -> {
-      use make <- result.try(
-        dynamic.field("make", dynamic.string)(remaining),
-      )
+      let make_decoder = {
+        use m <- decode.field("make", decode.string)
+        decode.success(m)
+      }
+      use make <- result.try(decode.run(remaining, make_decoder))
       Ok(Car(make: make))
     }
     "Truck" -> {
-      use payload_tons <- result.try(
-        dynamic.field("payloadTons", dynamic.int)(remaining),
-      )
+      let tons_decoder = {
+        use t <- decode.field("payloadTons", decode.int)
+        decode.success(t)
+      }
+      use payload_tons <- result.try(decode.run(remaining, tons_decoder))
       Ok(Truck(payload_tons: payload_tons))
     }
     _ ->
       Error([
-        dynamic.DecodeError(
+        decode.DecodeError(
           expected: "Car or Truck",
           found: tag,
           path: ["#type"],

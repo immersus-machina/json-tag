@@ -1,4 +1,4 @@
-import gleam/dynamic
+import gleam/dynamic/decode
 import gleam/json
 import gleeunit/should
 import json_tag
@@ -15,7 +15,7 @@ const truck_json = "{\"#type\":\"Truck\",\"payloadTons\":5}"
 
 pub fn decode_when_deserializing_circle_resolves_to_typed_shape_test() {
   // Act
-  let assert Ok(decoded) = json.decode(circle_json, dynamic.dynamic)
+  let assert Ok(decoded) = json.parse(circle_json, decode.dynamic)
   let assert Ok(shape) = test_types.decode_shape(decoded, json_tag.decode)
 
   // Assert
@@ -25,7 +25,7 @@ pub fn decode_when_deserializing_circle_resolves_to_typed_shape_test() {
 
 pub fn decode_when_deserializing_rectangle_resolves_to_typed_shape_test() {
   // Act
-  let assert Ok(decoded) = json.decode(rectangle_json, dynamic.dynamic)
+  let assert Ok(decoded) = json.parse(rectangle_json, decode.dynamic)
   let assert Ok(shape) = test_types.decode_shape(decoded, json_tag.decode)
 
   // Assert
@@ -35,7 +35,7 @@ pub fn decode_when_deserializing_rectangle_resolves_to_typed_shape_test() {
 
 pub fn decode_when_deserializing_car_resolves_to_typed_vehicle_test() {
   // Act
-  let assert Ok(decoded) = json.decode(car_json, dynamic.dynamic)
+  let assert Ok(decoded) = json.parse(car_json, decode.dynamic)
   let assert Ok(vehicle) = test_types.decode_vehicle(decoded, json_tag.decode)
 
   // Assert
@@ -45,7 +45,7 @@ pub fn decode_when_deserializing_car_resolves_to_typed_vehicle_test() {
 
 pub fn decode_when_deserializing_truck_resolves_to_typed_vehicle_test() {
   // Act
-  let assert Ok(decoded) = json.decode(truck_json, dynamic.dynamic)
+  let assert Ok(decoded) = json.parse(truck_json, decode.dynamic)
   let assert Ok(vehicle) = test_types.decode_vehicle(decoded, json_tag.decode)
 
   // Assert
@@ -55,7 +55,7 @@ pub fn decode_when_deserializing_truck_resolves_to_typed_vehicle_test() {
 
 pub fn decode_when_missing_hash_type_returns_error_test() {
   // Arrange
-  let assert Ok(decoded) = json.decode("{\"radius\":4}", dynamic.dynamic)
+  let assert Ok(decoded) = json.parse("{\"radius\":4}", decode.dynamic)
 
   // Act & Assert
   test_types.decode_shape(decoded, json_tag.decode)
