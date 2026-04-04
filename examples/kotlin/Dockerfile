@@ -4,9 +4,11 @@ COPY kotlin/ /lib/kotlin/
 RUN cd /lib/kotlin && gradle jar --no-daemon -q
 COPY examples/kotlin/build.gradle.kts examples/kotlin/settings.gradle.kts ./
 COPY examples/kotlin/src/ src/
-RUN gradle build --no-daemon -q
+RUN sed -i 's|files("../../kotlin/build/libs/json-tag.jar")|fileTree("/lib/kotlin/build/libs") { include("*.jar") }|' build.gradle.kts && \
+    sed -i 's|includeBuild("../../kotlin")|// includeBuild removed for Docker|' settings.gradle.kts && \
+    gradle installDist --no-daemon
 
 FROM eclipse-temurin:21-jre
-COPY --from=build /src/build/libs/*.jar /app/
+COPY --from=build /src/build/install/json-tag-example/ /app/
 EXPOSE 57660
-CMD ["java", "-jar", "/app/json-tag-example.jar"]
+CMD ["/app/bin/json-tag-example"]
