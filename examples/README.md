@@ -6,7 +6,7 @@ Each backend serves `GET /shape` on port 57660 returning a random shape tagged w
 
 ```json
 {
-  "shape": { "#type": "Circle", "diameter": 95 },
+  "shape": { "#type": "Rectangle", "width": 110, "height": 85 },
   "sender": "Haskell"
 }
 ```
@@ -21,7 +21,9 @@ Each backend serves `GET /shape` on port 57660 returning a random shape tagged w
 
 A TypeScript shape viewer that polls the backend and renders the response as a rotating SVG.
 
-Start any backend, then run the frontend alongside it:
+Start any backend, then open the hosted frontend at [zealous-river-0ef666f03.6.azurestaticapps.net](https://zealous-river-0ef666f03.6.azurestaticapps.net). The browser will ask for permission to access localhost — allow it, as the frontend calls your local backend on port 57660.
+
+Alternatively, run the frontend locally:
 
 ```bash
 docker compose --profile frontend up --build
