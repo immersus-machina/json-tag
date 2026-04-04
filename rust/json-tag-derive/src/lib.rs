@@ -1,6 +1,5 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::parse_macro_input;
 
 /// Attribute macro that configures a Rust enum for JSON Tag serialization.
 ///
@@ -20,7 +19,14 @@ use syn::parse_macro_input;
 /// ```
 #[proc_macro_attribute]
 pub fn json_tag(_attribute: TokenStream, item: TokenStream) -> TokenStream {
-    let enumeration = parse_macro_input!(item as syn::ItemEnum);
+    let enumeration = match syn::parse::<syn::ItemEnum>(item) {
+        Ok(e) => e,
+        Err(_) => {
+            return syn::Error::new(proc_macro2::Span::call_site(), "json_tag can only be applied to enums")
+                .to_compile_error()
+                .into();
+        }
+    };
 
     let attributes = &enumeration.attrs;
     let visibility = &enumeration.vis;

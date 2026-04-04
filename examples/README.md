@@ -105,6 +105,8 @@ Open [http://localhost:57661](http://localhost:57661).
 
 ## Shapes
 
+These are different from the library test shapes — the examples use a richer model to show off rendering.
+
 - **Circle**: `diameter` (80–120)
 - **Rectangle**: `width`, `height` (80–120)
 - **Triangle**: `edgeA`, `edgeB`, `edgeC` (80–120, edge lengths)

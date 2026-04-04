@@ -37,6 +37,10 @@ case tag {
 }
 ```
 
+## Custom tag names
+
+The tag value is just a string you pass to `encode` and match on in `decode` — use any name you want.
+
 ## API
 
 | Export | Description |

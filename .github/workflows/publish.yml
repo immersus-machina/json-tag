@@ -140,7 +140,7 @@ jobs:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: '26'
-          gleam-version: '1.9'
+          gleam-version: '1.15'
       - run: gleam test
         working-directory: gleam
 
@@ -286,7 +286,7 @@ jobs:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: '26'
-          gleam-version: '1.9'
+          gleam-version: '1.15'
       - name: Extract version
         id: version
         run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
