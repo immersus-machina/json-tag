@@ -1,7 +1,7 @@
 FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /src
 COPY java/ /lib/java/
-RUN mvn install -f /lib/java/pom.xml -DskipTests -q
+RUN mvn install -f /lib/java/pom.xml -DskipTests -Dgpg.skip=true -q
 COPY examples/java/pom.xml ./
 COPY examples/java/src/ src/
 RUN mvn package -q
