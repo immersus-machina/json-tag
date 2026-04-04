@@ -1,13 +1,19 @@
-name: Azure Static Web Apps CI/CD
+name: Azure Static Web Apps CI/CD — Frontend
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'examples/frontend/**'
+      - 'typescript/**'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+    paths:
+      - 'examples/frontend/**'
+      - 'typescript/**'
 
 jobs:
   build_and_deploy_job:
@@ -22,6 +28,13 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build TypeScript library
+        run: cd typescript && npm install && npx tsc
+      - name: Build frontend
+        run: cd examples/frontend && npm install && npx vite build
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
@@ -40,9 +53,10 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "./examples/frontend" # App source code path
+          app_location: "./examples/frontend/dist" # Pre-built output
           api_location: "" # Api source code path - optional
-          output_location: "." # Built app content directory - optional
+          output_location: "" # Already built, no further build needed
+          skip_app_build: true
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
