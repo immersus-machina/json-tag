@@ -1,7 +1,7 @@
 import type { JsonTagged } from "@immersus-machina/json-tag";
 import { toJsonTag } from "@immersus-machina/json-tag";
 
-export type Circle = JsonTagged<"Circle", { radius: number }>;
+export type Circle = JsonTagged<"Circle", { diameter: number }>;
 export type Rectangle = JsonTagged<"Rectangle", { width: number; height: number }>;
 export type Triangle = JsonTagged<"Triangle", { edgeA: number; edgeB: number; edgeC: number }>;
 export type Shape = Circle | Rectangle | Triangle;
@@ -14,7 +14,7 @@ export function generateRandomShape(): Shape {
   const variant = Math.floor(Math.random() * 3);
   switch (variant) {
     case 0:
-      return toJsonTag("Circle", { radius: getRandomShapeEdge() });
+      return toJsonTag("Circle", { diameter: getRandomShapeEdge() });
     case 1:
       return toJsonTag("Rectangle", { width: getRandomShapeEdge(), height: getRandomShapeEdge() });
     default:

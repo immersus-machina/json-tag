@@ -1,27 +1,39 @@
 # JSON# Examples
 
-12 backends, one endpoint, same JSON. Swap the backend, nothing changes.
+One frontend, 12 backends, one endpoint, same JSON. Swap the backend, nothing changes.
 
 Each backend serves `GET /shape` on port 57660 returning a random shape tagged with `#type`:
 
 ```json
 {
-  "shape": {"#type": "Circle", "radius": 95},
+  "shape": { "#type": "Circle", "diameter": 95 },
   "sender": "Haskell"
 }
 ```
 
 ## Shapes
 
-- **Circle**: `radius` (80-120)
+- **Circle**: `diameter` (80-120)
 - **Rectangle**: `width`, `height` (80-120)
 - **Triangle**: `edgeA`, `edgeB`, `edgeC` (80-120, edge lengths)
+
+## Frontend
+
+A TypeScript shape viewer that polls the backend and renders the response as a rotating SVG.
+
+Start any backend, then run the frontend alongside it:
+
+```bash
+docker compose --profile frontend up --build
+```
+
+Open [http://localhost:57661](http://localhost:57661).
 
 ## Prerequisites
 
 Requires [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
-## Run with Docker
+## Run backends with Docker
 
 Only one backend at a time — they all use port 57660. Stop with Ctrl+C before starting another.
 
@@ -95,10 +107,4 @@ docker compose --profile swift up --build
 
 ```bash
 docker compose --profile typescript up --build
-```
-
-## Test
-
-```bash
-curl http://localhost:57660/shape
 ```

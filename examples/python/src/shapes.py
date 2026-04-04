@@ -4,7 +4,7 @@ from json_tag import JsonTagModel, tagged_union
 
 
 class Circle(JsonTagModel):
-    radius: int
+    diameter: int
 
 
 class Rectangle(JsonTagModel):

@@ -6,7 +6,7 @@ object ShapeService {
 
     fun generateRandomShape(): Shape {
         return when (Random.nextInt(3)) {
-            0 -> Circle(radius = getRandomShapeEdge())
+            0 -> Circle(diameter = getRandomShapeEdge())
             1 -> Rectangle(width = getRandomShapeEdge(), height = getRandomShapeEdge())
             else -> Triangle(edgeA = getRandomShapeEdge(), edgeB = getRandomShapeEdge(), edgeC = getRandomShapeEdge())
         }

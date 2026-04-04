@@ -2,13 +2,13 @@ import Foundation
 // In production, use the json-tag Swift library
 
 enum Shape: Codable, Sendable {
-    case circle(radius: Int)
+    case circle(diameter: Int)
     case rectangle(width: Int, height: Int)
     case triangle(edgeA: Int, edgeB: Int, edgeC: Int)
 
     private enum CodingKeys: String, CodingKey {
         case type = "#type"
-        case radius
+        case diameter
         case width, height
         case edgeA, edgeB, edgeC
     }
@@ -16,9 +16,9 @@ enum Shape: Codable, Sendable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         switch self {
-        case .circle(let radius):
+        case .circle(let diameter):
             try container.encode("Circle", forKey: .type)
-            try container.encode(radius, forKey: .radius)
+            try container.encode(diameter, forKey: .diameter)
         case .rectangle(let width, let height):
             try container.encode("Rectangle", forKey: .type)
             try container.encode(width, forKey: .width)
@@ -36,7 +36,7 @@ enum Shape: Codable, Sendable {
         let typeTag = try container.decode(String.self, forKey: .type)
         switch typeTag {
         case "Circle":
-            self = .circle(radius: try container.decode(Int.self, forKey: .radius))
+            self = .circle(diameter: try container.decode(Int.self, forKey: .diameter))
         case "Rectangle":
             self = .rectangle(
                 width: try container.decode(Int.self, forKey: .width),

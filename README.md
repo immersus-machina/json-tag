@@ -36,18 +36,18 @@ When serializing a discriminated union, sum type, or polymorphic type to JSON, u
 
 ## Examples
 
-12 backends, one endpoint, same JSON. See the [examples](examples/README.md).
+One frontend, 12 backends, one endpoint, same JSON. See the [examples](examples/README.md).
 
 ## Why `#type`?
 
 The need for a type discriminator in JSON is well established. Everyone does it. Nobody agreed on how.
 
-| Field | Used by | Purpose |
-|-------|---------|---------|
-| `type` | everywhere | discriminator, but collides with domain fields |
-| `$type` | .NET, uPickle | polymorphic type discriminator |
-| `@type` | JSON-LD | linked data node type |
-| `__typename` | GraphQL | concrete type in union responses |
+| Field        | Used by       | Purpose                                        |
+| ------------ | ------------- | ---------------------------------------------- |
+| `type`       | everywhere    | discriminator, but collides with domain fields |
+| `$type`      | .NET, uPickle | polymorphic type discriminator                 |
+| `@type`      | JSON-LD       | linked data node type                          |
+| `__typename` | GraphQL       | concrete type in union responses               |
 
 Four ecosystems, same idea, four different names. `#type` is the simple, neutral answer.
 `#` is valid in JSON property names, has no reserved meaning in any specification, and reads naturally as "tag".

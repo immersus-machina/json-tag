@@ -7,7 +7,7 @@ public static class ShapeService
         var variant = Random.Shared.Next(3);
         return variant switch
         {
-            0 => new Circle { Radius = GetRandomShapeEdge() },
+            0 => new Circle { Diameter = GetRandomShapeEdge() },
             1 => new Rectangle { Width = GetRandomShapeEdge(), Height = GetRandomShapeEdge() },
             _ => new Triangle { EdgeA = GetRandomShapeEdge(), EdgeB = GetRandomShapeEdge(), EdgeC = GetRandomShapeEdge() },
         };

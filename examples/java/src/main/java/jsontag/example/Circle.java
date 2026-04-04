@@ -5,20 +5,20 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeName("Circle")
 public class Circle extends Shape {
 
-    private int radius;
+    private int diameter;
 
     public Circle() {
     }
 
-    public Circle(int radius) {
-        this.radius = radius;
+    public Circle(int diameter) {
+        this.diameter = diameter;
     }
 
-    public int getRadius() {
-        return radius;
+    public int getDiameter() {
+        return diameter;
     }
 
-    public void setRadius(int radius) {
-        this.radius = radius;
+    public void setDiameter(int diameter) {
+        this.diameter = diameter;
     }
 }

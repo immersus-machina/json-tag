@@ -7,6 +7,14 @@ services:
       - "57660:57660"
     profiles: ["csharp"]
 
+  frontend:
+    build:
+      context: ..
+      dockerfile: examples/frontend/Dockerfile
+    ports:
+      - "57661:57661"
+    profiles: ["frontend"]
+
   fsharp:
     build:
       context: ..

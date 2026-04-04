@@ -4,7 +4,7 @@ import json_tag
 
 /// The Shape type representing Circle, Rectangle, and Triangle variants.
 pub type Shape {
-  Circle(radius: Int)
+  Circle(diameter: Int)
   Rectangle(width: Int, height: Int)
   Triangle(edge_a: Int, edge_b: Int, edge_c: Int)
 }
@@ -13,8 +13,8 @@ pub type Shape {
 /// prepending the `#type` discriminator to the shape's fields.
 pub fn encode_shape(shape: Shape) -> json.Json {
   case shape {
-    Circle(radius) ->
-      json_tag.encode(tag: "Circle", fields: [#("radius", json.int(radius))])
+    Circle(diameter) ->
+      json_tag.encode(tag: "Circle", fields: [#("diameter", json.int(diameter))])
     Rectangle(width, height) ->
       json_tag.encode(tag: "Rectangle", fields: [
         #("width", json.int(width)),

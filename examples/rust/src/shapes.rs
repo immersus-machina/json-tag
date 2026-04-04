@@ -6,7 +6,7 @@ use serde::Serialize;
 #[derive(Serialize)]
 #[serde(rename_all_fields = "camelCase")]
 pub enum Shape {
-    Circle { radius: i32 },
+    Circle { diameter: i32 },
     Rectangle { width: i32, height: i32 },
     Triangle { edge_a: i32, edge_b: i32, edge_c: i32 },
 }
@@ -21,7 +21,7 @@ pub fn generate_random_shape() -> Shape {
     let variant = rand::thread_rng().gen_range(0..3);
     match variant {
         0 => Shape::Circle {
-            radius: get_random_shape_edge(),
+            diameter: get_random_shape_edge(),
         },
         1 => Shape::Rectangle {
             width: get_random_shape_edge(),

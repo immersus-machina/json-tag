@@ -8,7 +8,7 @@ sealed class Shape
 
 @Serializable
 @SerialName("Circle")
-data class Circle(val radius: Int) : Shape()
+data class Circle(val diameter: Int) : Shape()
 
 @Serializable
 @SerialName("Rectangle")

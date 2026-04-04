@@ -8,6 +8,6 @@ let private getRandomShapeEdge () =
 
 let generateRandomShape () =
     match Random.Shared.Next(3) with
-    | 0 -> Circle(radius = getRandomShapeEdge ())
+    | 0 -> Circle(diameter = getRandomShapeEdge ())
     | 1 -> Rectangle(width = getRandomShapeEdge (), height = getRandomShapeEdge ())
     | _ -> Triangle(edgeA = getRandomShapeEdge (), edgeB = getRandomShapeEdge (), edgeC = getRandomShapeEdge ())

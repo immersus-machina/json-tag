@@ -11,7 +11,7 @@ import GHC.Generics (Generic)
 import System.Random (randomRIO)
 
 data Shape
-  = Circle { radius :: Int }
+  = Circle { diameter :: Int }
   | Rectangle { width :: Int, height :: Int }
   | Triangle { edgeA :: Int, edgeB :: Int, edgeC :: Int }
   deriving (Show, Generic)

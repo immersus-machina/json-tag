@@ -6,7 +6,7 @@ import shapes.{type Shape, Circle, Rectangle, Triangle}
 pub fn generate_random_shape() -> Shape {
   let variant = int.random(3)
   case variant {
-    0 -> Circle(radius: shapes.get_random_shape_edge())
+    0 -> Circle(diameter: shapes.get_random_shape_edge())
     1 ->
       Rectangle(
         width: shapes.get_random_shape_edge(),

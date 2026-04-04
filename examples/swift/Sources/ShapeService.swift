@@ -14,7 +14,7 @@ struct ShapeService: Sendable {
         let variant = Int.random(in: 0...2)
         switch variant {
         case 0:
-            return .circle(radius: getRandomShapeEdge())
+            return .circle(diameter: getRandomShapeEdge())
         case 1:
             return .rectangle(width: getRandomShapeEdge(), height: getRandomShapeEdge())
         default:
