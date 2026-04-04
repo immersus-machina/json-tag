@@ -4,6 +4,7 @@ import jsontag.JsonTag
 
 object Server extends cask.MainRoutes:
 
+  override def host = "0.0.0.0"
   override def port = 57660
 
   @cask.get("/shape")

@@ -5,7 +5,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "json-tag-example",
     version := "0.1.0",
-    scalaVersion := "3.3.3",
+    scalaVersion := "3.7.1",
     libraryDependencies ++= Seq(
       "com.lihaoyi" %% "cask" % "0.9.4",
       "com.lihaoyi" %% "upickle" % "4.0.2"
