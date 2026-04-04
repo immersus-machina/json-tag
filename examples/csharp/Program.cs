@@ -20,4 +20,4 @@ app.MapGet("/shape", () => new
 });
 
 Console.WriteLine("JSON# C# backend listening on port 57660");
-app.Run("http://localhost:57660");
+app.Run("http://0.0.0.0:57660");

@@ -26,4 +26,4 @@ app.MapGet("/shape", System.Func<_>(fun () ->
 |> ignore
 
 printfn "JSON# F# backend listening on port 57660"
-app.Run("http://localhost:57660")
+app.Run("http://0.0.0.0:57660")
