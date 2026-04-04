@@ -25,12 +25,6 @@ Requires [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](http
 
 Only one backend at a time — they all use port 57660. Stop with Ctrl+C before starting another.
 
-### TypeScript (Hono)
-
-```bash
-docker compose --profile typescript up --build
-```
-
 ### C# (ASP.NET Core)
 
 ```bash
@@ -43,22 +37,16 @@ docker compose --profile csharp up --build
 docker compose --profile fsharp up --build
 ```
 
-### Rust (Axum)
+### Gleam (Mist)
 
 ```bash
-docker compose --profile rust up --build
+docker compose --profile gleam up --build
 ```
 
 ### Haskell (Scotty)
 
 ```bash
 docker compose --profile haskell up --build
-```
-
-### OCaml (Dream)
-
-```bash
-docker compose --profile ocaml up --build
 ```
 
 ### Java (Javalin)
@@ -73,10 +61,10 @@ docker compose --profile java up --build
 docker compose --profile kotlin up --build
 ```
 
-### Scala (Cask)
+### OCaml (Dream)
 
 ```bash
-docker compose --profile scala up --build
+docker compose --profile ocaml up --build
 ```
 
 ### Python (FastAPI)
@@ -85,16 +73,28 @@ docker compose --profile scala up --build
 docker compose --profile python up --build
 ```
 
-### Gleam (Mist)
+### Rust (Axum)
 
 ```bash
-docker compose --profile gleam up --build
+docker compose --profile rust up --build
+```
+
+### Scala (Cask)
+
+```bash
+docker compose --profile scala up --build
 ```
 
 ### Swift (Hummingbird)
 
 ```bash
 docker compose --profile swift up --build
+```
+
+### TypeScript (Hono)
+
+```bash
+docker compose --profile typescript up --build
 ```
 
 ## Test
