@@ -2,7 +2,13 @@
 
 One frontend, 12 backends, one endpoint, same JSON. Swap the backend, nothing changes.
 
-Each backend serves `GET /shape` on port 57660 returning a random shape tagged with `#type`:
+## Try it
+
+1. Start any backend (see below)
+2. Open the [frontend](https://zealous-river-0ef666f03.6.azurestaticapps.net)
+3. Allow localhost access when prompted — the frontend calls your local backend
+
+The frontend polls `GET /shape` on port 57660 and renders the response as a rotating SVG. Every backend returns the same structure:
 
 ```json
 {
@@ -11,33 +17,9 @@ Each backend serves `GET /shape` on port 57660 returning a random shape tagged w
 }
 ```
 
-## Shapes
+## Backends
 
-- **Circle**: `diameter` (80-120)
-- **Rectangle**: `width`, `height` (80-120)
-- **Triangle**: `edgeA`, `edgeB`, `edgeC` (80-120, edge lengths)
-
-## Frontend
-
-A TypeScript shape viewer that polls the backend and renders the response as a rotating SVG.
-
-Start any backend, then open the hosted frontend at [zealous-river-0ef666f03.6.azurestaticapps.net](https://zealous-river-0ef666f03.6.azurestaticapps.net). The browser will ask for permission to access localhost — allow it, as the frontend calls your local backend on port 57660.
-
-Alternatively, run the frontend locally:
-
-```bash
-docker compose --profile frontend up --build
-```
-
-Open [http://localhost:57661](http://localhost:57661).
-
-## Prerequisites
-
-Requires [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
-
-## Run backends with Docker
-
-Only one backend at a time — they all use port 57660. Stop with Ctrl+C before starting another.
+Requires [Docker](https://docs.docker.com/get-docker/). Only one backend at a time — they all use port 57660.
 
 ### C# (ASP.NET Core)
 
@@ -110,3 +92,19 @@ docker compose --profile swift up --build
 ```bash
 docker compose --profile typescript up --build
 ```
+
+## Frontend locally
+
+Run the frontend without the hosted version:
+
+```bash
+docker compose --profile frontend up --build
+```
+
+Open [http://localhost:57661](http://localhost:57661).
+
+## Shapes
+
+- **Circle**: `diameter` (80–120)
+- **Rectangle**: `width`, `height` (80–120)
+- **Triangle**: `edgeA`, `edgeB`, `edgeC` (80–120, edge lengths)
