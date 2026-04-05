@@ -6,7 +6,10 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@immersus-machina/json-tag": ["../../typescript/src/index.ts"]
+    }
   },
   "include": ["src"]
 }
