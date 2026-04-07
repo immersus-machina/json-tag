@@ -5,7 +5,7 @@ One frontend, 12 backends, one endpoint, same JSON. Swap the backend, nothing ch
 ## Try it
 
 1. Start any backend (see below)
-2. Open the [frontend](https://zealous-river-0ef666f03.6.azurestaticapps.net)
+2. Open the [frontend](https://example.json-tag.org)
 3. Allow localhost access when prompted — the frontend calls your local backend
 
 The frontend polls `GET /shape` on port 57660 and renders the response as a rotating SVG. Every backend returns the same structure:
